@@ -109,6 +109,17 @@
             50% { transform: scale(1.05); }
         }
 
+        /* Notification Animations */
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
         .hero-subtitle {
             font-size: clamp(1rem, 3vw, 1.8rem);
             color: #8B4513;
@@ -953,6 +964,119 @@
         <p style="font-size: 1.5rem; margin-top: 20px;">Click the cat for magic! ✨</p>
     </section>
 
+    <!-- JJ's Minecraft Server Section -->
+    <section class="minecraft-server-section" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 80px 20px; text-align: center;">
+        <h2 class="section-title" style="color: #7CB342; font-size: 2.5rem; margin-bottom: 20px;">🎀 JJ's Minecraft Server 🎀</h2>
+        <p style="color: #fff; font-size: 1.3rem; margin-bottom: 40px;">A celebration of cats, flowers, and lucky vibes!</p>
+        
+        <!-- Server Connection Cards -->
+        <div class="server-cards" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto 40px;">
+            <!-- Java Edition Card -->
+            <div class="server-card" style="background: linear-gradient(135deg, #8B4513, #A0522D); padding: 30px; border-radius: 20px; border: 4px solid #FFD700; width: 300px;">
+                <div style="font-size: 60px; margin-bottom: 15px;">💻</div>
+                <h3 style="color: #FFD700; margin-bottom: 15px;">Java Edition</h3>
+                <p style="color: #fff; font-size: 1.1rem; margin-bottom: 10px;">jjmc.bradarr.com</p>
+                <p style="color: #aaa;">Port: 25565 (default)</p>
+                <button onclick="copyToClipboard('jjmc.bradarr.com')" style="margin-top: 20px; padding: 10px 25px; background: #FFD700; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; color: #333;">📋 Copy Address</button>
+            </div>
+            
+            <!-- Bedrock Edition Card -->
+            <div class="server-card" style="background: linear-gradient(135deg, #00BCD4, #0097A7); padding: 30px; border-radius: 20px; border: 4px solid #4CAF50; width: 300px;">
+                <div style="font-size: 60px; margin-bottom: 15px;">📱</div>
+                <h3 style="color: #fff; margin-bottom: 15px;">Bedrock Edition</h3>
+                <p style="color: #fff; font-size: 1.1rem; margin-bottom: 10px;">jjmc.bradarr.com</p>
+                <p style="color: #ddd;">Port: 19132 (UDP)</p>
+                <button onclick="copyToClipboard('jjmc.bradarr.com:19132')" style="margin-top: 20px; padding: 10px 25px; background: #4CAF50; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; color: #fff;">📋 Copy Address</button>
+            </div>
+        </div>
+        
+        <!-- Server Status -->
+        <div class="server-status" style="background: rgba(124, 179, 66, 0.2); padding: 20px; border-radius: 15px; max-width: 600px; margin: 0 auto 40px; display: inline-block;">
+            <span style="color: #7CB342; font-size: 1.2rem;">● Server Status:</span>
+            <span id="serverStatus" style="color: #4CAF50; font-weight: bold; font-size: 1.2rem;">🟢 Online</span>
+            <span style="color: #7CB342; font-size: 1.1rem; margin-left: 20px;">● Version:</span>
+            <span style="color: #fff; font-weight: bold; font-size: 1.1rem;">1.21.3 Purpur</span>
+        </div>
+        
+        <!-- Features Grid -->
+        <h3 style="color: #FFD700; font-size: 1.8rem; margin-bottom: 30px;">✨ Server Features ✨</h3>
+        <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto 40px;">
+            <div class="feature" onclick="triggerCelebration()" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s;">
+                <div style="font-size: 40px; margin-bottom: 10px;">🐱</div>
+                <h4 style="color: #FFA500; margin-bottom: 8px;">Cat Paradise</h4>
+                <p style="color: #ccc; font-size: 0.9rem;">Cats spawn everywhere! /catparty command!</p>
+            </div>
+            <div class="feature" onclick="triggerCelebration()" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s;">
+                <div style="font-size: 40px; margin-bottom: 10px;">🌸</div>
+                <h4 style="color: #FFB7C5; margin-bottom: 8px;">Flower Gardens</h4>
+                <p style="color: #ccc; font-size: 0.9rem;">Dense flower forests everywhere!</p>
+            </div>
+            <div class="feature" onclick="triggerCelebration()" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s;">
+                <div style="font-size: 40px; margin-bottom: 10px;">🍀</div>
+                <h4 style="color: #FF4444; margin-bottom: 8px;">Lucky Theme</h4>
+                <p style="color: #ccc; font-size: 0.9rem;">Lucky Cat statues & villages!</p>
+            </div>
+            <div class="feature" onclick="triggerCelebration()" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s;">
+                <div style="font-size: 40px; margin-bottom: 10px;">🌿</div>
+                <h4 style="color: #4CAF50; margin-bottom: 8px;">GeyserMC Support</h4>
+                <p style="color: #ccc; font-size: 0.9rem;">Play from Bedrock Edition!</p>
+            </div>
+            <div class="feature" onclick="triggerCelebration()" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s;">
+                <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
+                <h4 style="color: #DDA0DD; margin-bottom: 8px;">Celebration Mode</h4>
+                <p style="color: #ccc; font-size: 0.9rem;">/celebration for big parties!</p>
+            </div>
+            <div class="feature" onclick="triggerCelebration()" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; cursor: pointer; transition: all 0.3s;">
+                <div style="font-size: 40px; margin-bottom: 10px;">💎</div>
+                <h4 style="color: #00BCD4; margin-bottom: 8px;">Custom Economy</h4>
+                <p style="color: #ccc; font-size: 0.9rem;">JJ Tokens currency system!</p>
+            </div>
+        </div>
+        
+        <!-- Fun Commands -->
+        <h3 style="color: #FFD700; font-size: 1.8rem; margin-bottom: 30px;">🎮 Fun Commands 🎮</h3>
+        <div class="commands-list" style="background: rgba(0,0,0,0.3); padding: 30px; border-radius: 20px; max-width: 800px; margin: 0 auto; text-align: left;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <div style="color: #fff;">
+                    <code style="background: #7CB342; padding: 5px 10px; border-radius: 5px; color: #000; font-weight: bold;">/jj</code> 🎀 Celebration!
+                </div>
+                <div style="color: #fff;">
+                    <code style="background: #FF4444; padding: 5px 10px; border-radius: 5px; color: #fff; font-weight: bold;">/lucky</code> 🍀 Get diamonds!
+                </div>
+                <div style="color: #fff;">
+                    <code style="background: #FFA500; padding: 5px 10px; border-radius: 5px; color: #000; font-weight: bold;">/catparty</code> 😺 10 cats!
+                </div>
+                <div style="color: #fff;">
+                    <code style="background: #FFB7C5; padding: 5px 10px; border-radius: 5px; color: #000; font-weight: bold;">/flowerpower</code> 💐 Flowers!
+                </div>
+                <div style="color: #fff;">
+                    <code style="background: #DDA0DD; padding: 5px 10px; border-radius: 5px; color: #000; font-weight: bold;">/celebration</code> 🎉 BIG PARTY!
+                </div>
+                <div style="color: #fff;">
+                    <code style="background: #FFD700; padding: 5px 10px; border-radius: 5px; color: #000; font-weight: bold;">/rainbow</code> 🌈 Armor!
+                </div>
+                <div style="color: #fff;">
+                    <code style="background: #00BCD4; padding: 5px 10px; border-radius: 5px; color: #fff; font-weight: bold;">/minecat</code> ⛏️ Cat eggs!
+                </div>
+                <div style="color: #fff;">
+                    <code style="background: #4CAF50; padding: 5px 10px; border-radius: 5px; color: #fff; font-weight: bold;">/luckycat</code> 🐱 Lucky Cat!
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Connect Button -->
+        <div style="margin-top: 40px;">
+            <a href="#" onclick="copyServerAddress()" style="display: inline-block; padding: 20px 50px; background: linear-gradient(135deg, #7CB342, #4CAF50); color: white; text-decoration: none; border-radius: 50px; font-size: 1.3rem; font-weight: bold; box-shadow: 0 10px 30px rgba(124, 179, 66, 0.4); transition: all 0.3s;">
+                🎀 Connect to JJ's Server! 🎀
+            </a>
+        </div>
+        
+        <!-- Plugins Info -->
+        <div style="margin-top: 50px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p style="color: #888; font-size: 0.9rem;">Powered by PurpurMC 1.21.3 | GeyserMC + Floodgate for Bedrock | Made with 💜 for JJ</p>
+        </div>
+    </section>
+
     <!-- Photo Gallery -->
     <section class="message-section">
         <h2 class="section-title">📸 Picture Perfect for JJ 📸</h2>
@@ -1191,6 +1315,28 @@
             
             cat.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
         });
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('📋 Copied: ' + text);
+            });
+        }
+        
+        function copyServerAddress() {
+            copyToClipboard('jjmc.bradarr.com');
+        }
+        
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #7CB342; color: white; padding: 15px 25px; border-radius: 10px; z-index: 10000; animation: slideIn 0.3s ease;';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
 
         console.log('🎀 Welcome to JJ\'s website! Made with love by Clawdbot 🦞');
         console.log('💛 If you\'re reading this, you must really love JJ!');
